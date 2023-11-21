@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
                 pline = pline[2].strip()  # pline is now str
                 if pline:
                     # check for *args or **kwargs
-                    if pline[0] is '{' and pline[-1] is'}'\
+                    if pline[0] is '{' and pline[-1] is '}'\
                             and type(eval(pline)) is dict:
                         _args = pline
                     else:
@@ -218,14 +218,14 @@ class HBNBCommand(cmd.Cmd):
     def help_all(self):
         """ Help information for the all command """
         print("Shows all objects, or all of a class")
-        print("[Usage]: all <className>\n")
+        print("[Usage]: all <className> \n")
 
     def do_count(self, args):
         """Count current number of class instances"""
         count = 0
         for k, v in storage._FileStorage__objects.items():
             if args == k.split('.')[0]:
-                count += 1
+                count + = 1
         print(count)
 
     def help_count(self):
@@ -319,6 +319,7 @@ class HBNBCommand(cmd.Cmd):
         """ Help information for the update class """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
