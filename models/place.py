@@ -11,10 +11,13 @@ from sqlalchemy.orm import relationship
 if models.storage_t == 'Db':
     place_amenity = Table('place_amenity', Base.metadata,
                           Column('place_id', String(60),
-                                 ForignKey('places.id', onupdate='CASCADE', ondelete='CASCADE'),
+                                 ForignKey('places.id', onupdate='CASCADE',
+                                           ondelete='CASCADE'),
                                  primary_key=True),
                           Column('amenity_id', String(60),
-                                 ForeignKey('amenities.id', onupdate='CASCADE', ondelete='CASCADE'),
+                                 ForeignKey('amenities.id',
+                                            onupdate='CASCADE',
+                                            ondelete='CASCADE'),
                                  primary_key=True))
 
 
@@ -48,21 +51,23 @@ class Place(BaseModel, Base):
         latitude = 0.0
         longitude = 0.0
         amenity_ids = []
+
     def __init__(self, *args, **kwargs):
         """initializes Place"""
         super().__init__(*args, **kwargs)
-    
+
     if models.storage_t != 'Db':
         @property
         def review(self):
             """getter attribute returns the list of Review..."""
             from models.review import Review
-            review_l =[]
+            review_l = []
             review_a = models.storage.all(Review)
             for review in review_a.values():
                 if review.place_id == self.id:
                     review_list.append(review)
             return review_list
+
         @property
         def amenities(self):
             """getter attribute returns the list of Amenity..."""
