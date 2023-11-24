@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         # Split the command into class name and parameters
-        parts = args.split( ' ')
+        parts = args.split(' ')
         class_name = parts[0]
         params = parts[1:]
 
@@ -128,18 +128,18 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        #Creat a dictionary to store key-value pairs ..
+        # Creat a dictionary to store key-value pairs ..
         obj_params = {}
 
         for param in params:
-            # Split the parameter into key and value 
+            # Split the parameter into key and value
             key, value = param.split('=')
             # Handle string values with spaces and quotes
             if value[0] == '"' and value[-1] == '"':
                 value = value[1:-1].replace('_', ' ')
             obj_params[key] = value
 
-            # Create an instance of the specified class with the provided parameters
+            # Create an instance of the specified class
             new_instance = HBNBCommand.classes[class_name](**obj_params)
 
             storage.save()
@@ -207,7 +207,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del (storage.all()[key])
             storage.save()
         except KeyError:
             print("** no instance found **")
