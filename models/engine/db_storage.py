@@ -41,11 +41,11 @@ class DBStorage:
             """query on the current database session"""
             temp = {}
             for cl in classes:
-            if cls is None or cls is classes[cl] or cls is cl:
-                objs = self.__session.query(classes[cl]).all()
-                for obj in objs:
-                    key = oobj.__class__.__name__+ '.' + obj.id
-                    temp[key] = obj
+                if cls is None or cls is classes[cl] or cls is cl:
+                    objs = self.__session.query(classes[cl]).all()
+                    for obj in objs:
+                        key = obj.__class__.__name__+ '.' + obj.id
+                        temp[key] = obj
             return (temp)
 
         def new(self, obj):
@@ -66,7 +66,7 @@ class DBStorage:
             Base.metadata.create_all(self.__engine)
             sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
             session = scoped_session(sess_factory)
-            self.__session = Session
+            self.__session = session
 
         def close(self):
             """call remove() method on the private session attribute"""
