@@ -11,7 +11,7 @@ from sqlalchemy.ext.declarative import declarative_base
 time = '%Y-%m-%dT%H:%M:%S.%f'
 
 if models.storage_t == "Db":
-     Base = declarative_base()
+    Base = declarative_base()
 else:
     Base = object
 
@@ -29,7 +29,7 @@ class BaseModel:
             self.create_new_instance()
         else:
             self.update_existing_instance(kwargs)
-    
+
     def create_new_instance(self):
         """Creates a new instance"""
         from models import storage
@@ -66,7 +66,6 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         return dictionary
-
 
     def delete(self):
         """Delete the current instance from the storage"""
