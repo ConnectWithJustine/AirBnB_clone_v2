@@ -225,7 +225,7 @@ class HBNBCommand(cmd.Cmd):
         count = 0
         for k, v in storage._FileStorage__objects.items():
             if args == k.split('.')[0]:
-                count + = 1
+                count += 1
         print(count)
 
     def help_count(self):
