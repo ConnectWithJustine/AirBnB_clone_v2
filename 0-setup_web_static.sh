@@ -8,7 +8,7 @@ sudo apt-get -y install nginx
 sudo mkdir -p /data/web_static/releases/test
 sudo mkdir -p /data/web_static/shared
 sudo touch /data/web_static/releases/test/index.html
-echo "Hello, this is a test" | sudo tee /data/web_static/releases/test/index.html
+echo "Hello, this is a test file" | sudo tee /data/web_static/releases/test/index.html
 
 # Create symbolic link
 sudo rm -rf /data/web_static/current
