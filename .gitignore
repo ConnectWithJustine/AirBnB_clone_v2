@@ -12,3 +12,4 @@ pytest_cache/
 ### Other ###
 *.json
 test/
+*.tgz
