@@ -15,6 +15,9 @@ env.hosts = ['3.84.237.21', '18.204.13.20']
 
 
 def do_pack():
+    """
+        store the path of the created archive
+    """
     timestamp = time.strftime("%Y%m%d%H%M%S")
     try:
         local("mkdir -p versions")
@@ -61,6 +64,9 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    """
+        deploy new version
+    """
     try:
         my_archive_path = do_pack()
         deploythis = do_deploy(my_archive_path)
