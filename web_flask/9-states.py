@@ -6,6 +6,7 @@ from os import environ
 from flask import Flask, render_template
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
