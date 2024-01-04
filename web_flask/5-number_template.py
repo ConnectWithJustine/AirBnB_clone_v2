@@ -35,7 +35,7 @@ def number_hbnb(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def num_temp_hbnb(n):
-    return render_template('5-number.html', n=n)
+    return render_template('5-number.html', value=n)
 
 
 if __name__ == '__main__':
